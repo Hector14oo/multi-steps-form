@@ -19,8 +19,8 @@
 
 ## 🏷 Tipo de PR
 
-- [ ] Bugfix
-- [ ] Feature
-- [ ] Refactoring
-- [ ] Update de dependencias
-- [ ] Otro (describir):
+- [ ] :bug: Bugfix
+- [ ] :sparkles: Feature
+- [ ] :recycle: Refactoring
+- [ ] ⬆️ Update de dependencias
+- [ ] 🤷‍♂️ Otro (describir)
