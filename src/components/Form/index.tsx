@@ -7,11 +7,9 @@ export function Form({ legend, description, page, children }: FormType) {
       className='p-5 flex flex-col gap-3 w-11/12 bg-White rounded-xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)]'
     >
       <legend className='mt-2 text-2xl font-bold text-Marine-blue'>
-        Personal info
         {legend}
       </legend>
       <p className='mb-2 w-60 font-light text-Cool-gray'>
-        Please provide your name, email address, and phone number.
         {description}
       </p>
 
