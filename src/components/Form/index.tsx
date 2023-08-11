@@ -1,6 +1,6 @@
 import { FormType } from '@/types/FormTypes';
 
-export function StepOne({ legend, description, page, children }: FormType) {
+export function Form({ legend, description, page, children }: FormType) {
   return (
     <form
       action=''
