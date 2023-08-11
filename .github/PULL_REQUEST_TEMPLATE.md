@@ -2,11 +2,11 @@
 
 ## ▶ Descripción
 
-> Completa con el detalle del cambio
+> Completa con el detalle del cambio.
 
 ## ▶ Información para el Reviewer
 
-> Comenta el flujo que se tiene que realizar para poder testear el nuevo cambio
+> Comenta el flujo que se tiene que realizar para poder testear el nuevo cambio.
 
 ## 🔑 Datos de usuario para probar el cambio:
 
@@ -19,8 +19,8 @@
 
 ## 🏷 Tipo de PR
 
-- [ ] :bug: Bugfix
-- [ ] :sparkles: Feature
-- [ ] :recycle: Refactoring
-- [ ] ⬆️ Update de dependencias
-- [ ] 🤷‍♂️ Otro (describir)
+- [ ] :bug: Bugfix.
+- [ ] :sparkles: Feature.
+- [ ] :recycle: Refactoring.
+- [ ] ⬆️ Update de dependencias.
+- [ ] 🤷‍♂️ Otro (describir).
