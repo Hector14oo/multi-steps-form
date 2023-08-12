@@ -1,4 +1,4 @@
-import { INPUT_LIST } from '@/utils/constants';
+import { INPUT_LIST } from '@utils/constants';
 
 export function ScreenOne() {
   return INPUT_LIST.map((data) => (
