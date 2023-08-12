@@ -2,8 +2,8 @@ export function ArcadeSVG() {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      width='{40}'
-      height='{40}'
+      width='40'
+      height='40'
       viewBox='0 0 40 40'
     >
       <g
@@ -11,9 +11,9 @@ export function ArcadeSVG() {
         fillRule='evenodd'
       >
         <circle
-          cx='{20}'
-          cy='{20}'
-          r='{20}'
+          cx='20'
+          cy='20'
+          r='20'
           fill='#FFAF7E'
         />
         <path
