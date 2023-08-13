@@ -1,10 +1,10 @@
 import { Form } from '@/components/Form';
-import { ScreenOne, ScreenTwo } from '@/components/FormScreens';
+import { ScreenOne, ScreenThree, ScreenTwo } from '@/components/FormScreens';
 
 import { STEP_LIST } from '@/utils/constants';
 
 export default function Home() {
-  let page = 2;
+  let page = 3;
   return (
     <main className='w-full h-full overflow-y-scroll flex flex-col items-center gap-4 bg-[url("/images/bg-sidebar-mobile.svg")] bg-no-repeat bg-contain'>
       <section>
@@ -44,11 +44,11 @@ export default function Home() {
 
       {page === 3 && (
         <Form
-          legend='Select your plan'
-          description='You have the option of monthly or yearly billing.'
+          legend='Pick add-ons'
+          description='Add-ons help enhance your gaming experience.'
           page={page}
         >
-          <ScreenTwo />
+          <ScreenThree />
         </Form>
       )}
     </main>
