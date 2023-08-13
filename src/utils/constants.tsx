@@ -25,3 +25,13 @@ export const RADIO_LIST = (type: boolean) => {
     { icon: <ProSVG />, label: 'Pro', price: priceList[2], hasDiscount },
   ];
 };
+
+export const CHECKBOX_LIST = (type: boolean) => {
+  const priceList = !type ? ['+$1/mo', '+$2/mo', '+$2/mo'] : ['+$10/yr', '+$20/yr', '+$20/yr'];
+
+  return [
+    { label: 'Online service', description: 'Acess to multiplayer games', price: priceList[0] },
+    { label: 'Larger storage', description: 'Extra 1TB of cloud save', price: priceList[1] },
+    { label: 'Customizable profile', description: 'Custom theme on your profile', price: priceList[2] },
+  ];
+};
