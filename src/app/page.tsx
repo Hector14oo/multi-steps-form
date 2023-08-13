@@ -1,10 +1,10 @@
 import { Form } from '@/components/Form';
-import { ScreenOne, ScreenThree, ScreenTwo } from '@/components/FormScreens';
+import { ScreenOne, ScreenTwo, ScreenThree, ScreenFour } from '@/components/FormScreens';
 
 import { STEP_LIST } from '@/utils/constants';
 
 export default function Home() {
-  let page = 3;
+  let page = 4;
   return (
     <main className='w-full h-full overflow-y-scroll flex flex-col items-center gap-4 bg-[url("/images/bg-sidebar-mobile.svg")] bg-no-repeat bg-contain'>
       <section>
@@ -21,7 +21,7 @@ export default function Home() {
           })}
         </ol>
       </section>
-      
+
       {page === 1 && (
         <Form
           legend='Personal info'
@@ -49,6 +49,16 @@ export default function Home() {
           page={page}
         >
           <ScreenThree />
+        </Form>
+      )}
+
+      {page === 4 && (
+        <Form
+          legend='Finish up'
+          description='Double-check everything looks OK before confirming'
+          page={page}
+        >
+          <ScreenFour />
         </Form>
       )}
     </main>
