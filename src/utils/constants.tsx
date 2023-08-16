@@ -16,22 +16,21 @@ export const INPUT_LIST = [
 ];
 
 export const RADIO_LIST = (type: boolean) => {
-  const priceList = !type ? ['$9/mo', '$12/mo', '$15/mo'] : ['$90/yr', '$120/yr', '$150/yr'];
-  const hasDiscount = !type ? '' : '2 months free';
+  const multiplier = type ? 10 : 1;
 
   return [
-    { icon: <ArcadeSVG />, label: 'Arcade', price: priceList[0], hasDiscount },
-    { icon: <AdvancedSVG />, label: 'Advanced', price: priceList[1], hasDiscount },
-    { icon: <ProSVG />, label: 'Pro', price: priceList[2], hasDiscount },
+    { icon: <ArcadeSVG />, label: 'Arcade', price: 9 * multiplier },
+    { icon: <AdvancedSVG />, label: 'Advanced', price: 12 * multiplier },
+    { icon: <ProSVG />, label: 'Pro', price: 15 * multiplier },
   ];
 };
 
 export const CHECKBOX_LIST = (type: boolean) => {
-  const priceList = !type ? ['+$1/mo', '+$2/mo', '+$2/mo'] : ['+$10/yr', '+$20/yr', '+$20/yr'];
+  const multiplier = type ? 10 : 1;
 
   return [
-    { label: 'Online service', description: 'Acess to multiplayer games', price: priceList[0] },
-    { label: 'Larger storage', description: 'Extra 1TB of cloud save', price: priceList[1] },
-    { label: 'Customizable profile', description: 'Custom theme on your profile', price: priceList[2] },
+    { label: 'Online service', description: 'Acess to multiplayer games', price: 1 * multiplier },
+    { label: 'Larger storage', description: 'Extra 1TB of cloud save', price: 2 * multiplier },
+    { label: 'Customizable profile', description: 'Custom theme on your profile', price: 2 * multiplier },
   ];
 };
