@@ -6,11 +6,12 @@ export const initialState: UserInformation = {
     email: undefined,
     number: undefined,
   },
-  plan: undefined,
+  plan: { name: undefined, price: undefined },
   planType: false, //false = Monthly | true = Yearly
   addOns: [],
-  step: 3,
+  step: 1,
   success: false,
+  total: 0,
 };
 
 export const formReducer = (state: any, action: any) => {
@@ -28,11 +29,13 @@ export const formReducer = (state: any, action: any) => {
       return {
         ...state,
         plan: payload.plan,
+        total: state.total + payload.plan.price,
       };
     case 'STEP_3':
       return {
         ...state,
         addOns: payload.addOns,
+        total: state.total + payload.addOns.reduce((a: number, v: { name: string; price: number }) => a + v.price, 0),
       };
 
     case 'PLAN_TYPE':
@@ -40,6 +43,14 @@ export const formReducer = (state: any, action: any) => {
         ...state,
         planType: !state.planType,
       };
+
+    case 'CHANGE_PLAN':
+      if (payload)
+        return {
+          ...state,
+          step: payload,
+          total: 0,
+        };
 
     case 'GO_BACK':
       if (state.step === 1) break;
