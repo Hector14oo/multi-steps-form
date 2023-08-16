@@ -2,7 +2,7 @@
 
 import { UserInformation } from '@/types/FormTypes';
 import { initialState, formReducer } from '@/actions/reducer';
-import { createContext, useContext, ReactNode, useReducer, useEffect } from 'react';
+import { createContext, useContext, ReactNode, useReducer } from 'react';
 
 interface ContextProps {
   globalState: UserInformation;
@@ -16,10 +16,6 @@ export const Context = createContext<ContextProps>({
 
 export const GlobalProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(formReducer, initialState);
-
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
 
   return <Context.Provider value={{ globalState: state, dispatcher: dispatch }}>{children}</Context.Provider>;
 };
