@@ -6,8 +6,8 @@ export function ThanksScreen() {
       <i>
         <ThanksSVG />
       </i>
-      <h1 className='mt-2 text-2xl font-bold text-Marine-blue'>Thank you!</h1>
-      <p className='mb-2 font-light text-Cool-gray'>
+      <h1 className='mt-2 text-2xl md:text-3xl font-bold text-Marine-blue'>Thank you!</h1>
+      <p className='mb-2 md:text-lg font-light text-Cool-gray'>
         Thanks for confirming your subscription!
         We hope you have fun using our
         platform. If you ever need support,
