@@ -5,7 +5,7 @@ import { useGlobalContext } from '@/context/GlobalContext';
 import { STEP_LIST } from '@/utils/constants';
 
 import { Form } from '@/components/Form';
-import { ScreenOne, ScreenTwo, ScreenThree, ScreenFour } from '@/components/FormScreens';
+import { ScreenOne, ScreenTwo, ScreenThree, ScreenFour, ThanksScreen } from '@/components/Screens';
 
 export default function Home() {
   const { globalState } = useGlobalContext();
@@ -26,34 +26,40 @@ export default function Home() {
         </ol>
       </section>
 
-      {globalState.step === 1 && (
-        <Form
-          legend='Personal info'
-          description='Please provide your name, email address, and phone number.'
-        >
-          <ScreenOne />
-        </Form>
-      )}
+      {globalState.success ? (
+        <ThanksScreen />
+      ) : (
+        <>
+          {globalState.step === 1 && (
+            <Form
+              legend='Personal info'
+              description='Please provide your name, email address, and phone number.'
+            >
+              <ScreenOne />
+            </Form>
+          )}
 
-      {globalState.step === 2 && (
-        <Form
-          legend='Select your plan'
-          description='You have the option of monthly or yearly billing.'
-        >
-          <ScreenTwo />
-        </Form>
-      )}
+          {globalState.step === 2 && (
+            <Form
+              legend='Select your plan'
+              description='You have the option of monthly or yearly billing.'
+            >
+              <ScreenTwo />
+            </Form>
+          )}
 
-      {globalState.step === 3 && (
-        <Form
-          legend='Pick add-ons'
-          description='Add-ons help enhance your gaming experience.'
-        >
-          <ScreenThree />
-        </Form>
-      )}
+          {globalState.step === 3 && (
+            <Form
+              legend='Pick add-ons'
+              description='Add-ons help enhance your gaming experience.'
+            >
+              <ScreenThree />
+            </Form>
+          )}
 
-      {globalState.step === 4 && <ScreenFour />}
+          {globalState.step === 4 && <ScreenFour />}
+        </>
+      )}
     </main>
   );
 }

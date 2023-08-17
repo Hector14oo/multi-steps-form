@@ -1,6 +1,5 @@
 import { useGlobalContext } from '@/context/GlobalContext';
-
-import { CHANGE_PLAN } from '@/actions/types';
+import { CHANGE_PLAN, GO_BACK, SUCCESS } from '@/actions/types';
 
 export function ScreenFour() {
   const { globalState, dispatcher } = useGlobalContext();
@@ -50,6 +49,24 @@ export function ScreenFour() {
           </h3>
         </footer>
       </article>
+
+      <section className='p-4 w-full flex justify-between items-center fixed bottom-0 left-0 bg-White'>
+        <button
+          type='button'
+          className={`${globalState.step > 1 ? 'visible' : 'invisible'} text-sm text-Cool-gray rounded-[4px]`}
+          onClick={() => dispatcher({ type: GO_BACK })}
+          >
+          Go Back
+        </button>
+
+        <button
+          type='button'
+          className={`py-2 px-4 text-sm text-White ${globalState.step < 4 ? 'bg-Marine-blue' : 'bg-Purplish-blue'} rounded-[4px]`}
+          onClick={() => dispatcher({ type: SUCCESS })}
+        >
+          Confirm
+        </button>
+      </section>
     </section>
   );
 }

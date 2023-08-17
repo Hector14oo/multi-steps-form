@@ -34,8 +34,6 @@ export function Form({ legend, description, children }: FormType) {
 
       case 3: {
         const addOns = formData.getAll('addOns');
-
-        console.log('ADDONS NAMES: ' + addOns);
         const addOnsList = addOns.map((addOn, index) => ({ name: addOn, price: CHECKBOX_LIST(globalState.planType)[index].price }));
 
         dispatcher({ type: STEP_3, payload: { addOns: addOnsList } });

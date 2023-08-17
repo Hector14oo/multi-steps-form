@@ -51,6 +51,11 @@ export const formReducer = (state: any, action: any) => {
           step: payload,
           total: 0,
         };
+    case 'SUCCESS':
+      return {
+        ...state,
+        success: true,
+      };
 
     case 'GO_BACK':
       if (state.step === 1) break;
