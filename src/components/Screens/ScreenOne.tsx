@@ -11,7 +11,7 @@ export function ScreenOne() {
         type={data.type}
         name={data.name}
         placeholder={`e.g. ${data.placeholder}`}
-        className='px-3 py-[10px] text-sm md:text-lg font-medium border border-Light-gray rounded-md'
+        className='px-3 py-[10px] text-sm md:text-lg font-medium border ring-1 ring-Light-gray hover:ring-Purplish-blue rounded-md '
       />
     </label>
   ));
