@@ -20,7 +20,7 @@ export function ScreenTwo() {
             value={radio.label}
             className='sr-only peer'
           />
-          <article className='p-5 w-full lg:h-full flex lg:flex-col items-center lg:items-start gap-4 rounded-lg ring-1 ring-Light-gray peer-checked:ring-Marine-blue peer-checked:bg-Purplish-blue peer-checked:bg-opacity-5'>
+          <article className='p-5 w-full lg:h-full flex lg:flex-col items-center lg:items-start gap-4 rounded-lg ring-1 ring-Light-gray peer-checked:ring-Marine-blue hover:ring-Marine-blue peer-checked:bg-Purplish-blue peer-checked:bg-opacity-5'>
             <i aria-hidden='true'>{radio.icon}</i>
             <section className='w-full'>
               <span className='w-full md:text-lg text-Marine-blue font-medium'>{radio.label}</span>
