@@ -4,7 +4,7 @@ import { CHANGE_PLAN, GO_BACK, SUCCESS } from '@/actions/types';
 export function ScreenFour() {
   const { globalState, dispatcher } = useGlobalContext();
   return (
-    <section className='p-5 flex flex-col gap-3 w-11/12 bg-White rounded-xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)]'>
+    <section className='p-5 lg:px-16 w-11/12 lg:w-full lg:h-full flex flex-col gap-3 lg:relative bg-White rounded-xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)] lg:shadow-none'>
       <h1 className='mt-2 text-2xl md:text-3xl font-bold text-Marine-blue'>Finish up</h1>
       <p className='mb-2 w-60 md:w-96 md:text-lg font-light text-Cool-gray'>Double-check everything looks OK before confirming.</p>
 
@@ -50,7 +50,7 @@ export function ScreenFour() {
         </footer>
       </article>
 
-      <section className='p-4 w-full flex justify-between items-center fixed bottom-0 left-0 bg-White'>
+      <section className='p-4 lg:px-0 w-full lg:w-[calc(100%-128px)] flex justify-between items-center absolute bottom-0 left-0 lg:right-16 lg:left-auto bg-White'>
         <button
           type='button'
           className={`${globalState.step > 1 ? 'visible' : 'invisible'} text-sm md:text-base text-Cool-gray rounded-[4px]`}
