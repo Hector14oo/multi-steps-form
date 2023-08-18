@@ -8,13 +8,13 @@ export function ScreenThree() {
       {CHECKBOX_LIST(globalState.planType).map((checkbox) => (
         <label
           key={checkbox.label}
-          className='py-2 pl-4 w-full relative flex items-center gap-4'
+          className='py-2 pl-4 w-full relative flex items-center gap-4 cursor-pointer'
         >
           <input
             type='checkbox'
             name='addOns'
             value={checkbox.label}
-            className='w-6 h-6 peer accent-Purplish-blue after:absolute after:rounded-lg after:top-0 after:left-0 after:w-full after:h-full after:appearance-none after:ring-1 after:ring-Light-gray after:checked:ring-Marine-blue after:checked:bg-Purplish-blue after:checked:bg-opacity-5'
+            className='w-6 h-6 peer accent-Purplish-blue after:absolute after:rounded-lg after:top-0 after:left-0 after:w-full after:h-full after:appearance-none after:ring-1 after:ring-Light-gray after:checked:ring-Marine-blue after:hover:ring-Marine-blue after:checked:bg-Purplish-blue after:checked:bg-opacity-5 after:cursor-pointer'
           />
           <article className='p-3 pl-0 w-full flex items-center gap-4'>
             <span className='w-full text-sm md:text-base text-Marine-blue font-medium'>
