@@ -2,7 +2,7 @@ import { ThanksSVG } from '@public/images/ThanksSVG';
 
 export function ThanksScreen() {
   return (
-    <section className='p-6 lg:p-0 h-96 flex flex-col justify-center items-center text-center gap-3 w-11/12 bg-White rounded-xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)] lg:shadow-none'>
+    <section className='w-11/12 lg:w-full lg:h-full p-6 lg:px-16 h-96 flex flex-col justify-center items-center text-center gap-3 bg-White rounded-xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)] lg:shadow-none'>
       <i>
         <ThanksSVG />
       </i>
