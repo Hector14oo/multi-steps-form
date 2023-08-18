@@ -1,7 +1,9 @@
-import { GlobalProvider } from '@/context/GlobalContext';
-import '../global.css';
 import type { Metadata } from 'next';
 import { Ubuntu as Font } from 'next/font/google';
+
+import { GlobalProvider } from '@/context/GlobalContext';
+
+import '../global.css';
 
 const inter = Font({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} flex w-full h-screen justify-center items-center bg-Magnolia`}>
+      <body className={`${inter.className} grid place-items-center w-screen h-screen overflow-hidden  bg-Magnolia`}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>
