@@ -12,7 +12,7 @@ export function ScreenTwo() {
       {RADIO_LIST(globalState.planType).map((radio) => (
         <label
           key={radio.label}
-          className='w-full lg:w-[169px] lg:h-[170px]'
+          className='w-full lg:w-[189px] lg:h-[170px] cursor-pointer'
         >
           <input
             type='radio'
