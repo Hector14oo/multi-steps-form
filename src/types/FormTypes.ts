@@ -16,6 +16,8 @@ export type UserInformation = {
   planType: boolean;
   addOns: [] | [{ name: undefined | string; price: undefined | number }];
   step: number;
+  errorOpacity: number;
+  errorMessage: string[];
   success: boolean;
   total: number;
 };
