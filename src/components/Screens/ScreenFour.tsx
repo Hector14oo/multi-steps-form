@@ -26,21 +26,25 @@ export function ScreenFour() {
             </span>
           </section>
 
-          <hr className='text-Light-gray' />
+          {globalState.addOns.length > 0 && (
+            <>
+              <hr className='text-Light-gray' />
 
-          <ul>
-            {globalState.addOns.map((addOn) => (
-              <li
-                key={addOn.name}
-                className='flex justify-between text-sm md:text-base font-normal text-Cool-gray'
-              >
-                {addOn.name}
-                <span className='text-Marine-blue'>
-                  +${addOn.price}/{globalState.planType ? 'yr' : 'mo'}
-                </span>
-              </li>
-            ))}
-          </ul>
+              <ul>
+                {globalState.addOns.map((addOn) => (
+                  <li
+                    key={addOn.name}
+                    className='flex justify-between text-sm md:text-base font-normal text-Cool-gray'
+                  >
+                    {addOn.name}
+                    <span className='text-Marine-blue'>
+                      +${addOn.price}/{globalState.planType ? 'yr' : 'mo'}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </main>
 
         <footer className='px-4'>
