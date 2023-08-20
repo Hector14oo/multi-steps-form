@@ -1,6 +1,6 @@
-import { UserInformation } from '@/types/FormTypes';
+import { FormInformation } from '@/types/FormTypes';
 
-export const initialState: UserInformation = {
+export const initialState: FormInformation = {
   userData: {
     name: undefined,
     email: undefined,
@@ -42,10 +42,7 @@ export const formReducer = (state: any, action: any) => {
     case 'ERROR':
       return {
         ...state,
-        formError: {
-          opacity: 1,
-          message: state.formError.message,
-        },
+        errorOpacity: payload,
       };
 
     case 'PLAN_TYPE':
