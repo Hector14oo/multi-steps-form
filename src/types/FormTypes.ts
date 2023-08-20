@@ -6,7 +6,7 @@ export type FormType = {
   children: ReactNode;
 };
 
-export type UserInformation = {
+export type FormInformation = {
   userData: {
     name: undefined | string;
     email: undefined | string;
