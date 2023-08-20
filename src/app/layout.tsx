@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} grid place-items-center w-screen h-screen overflow-hidden  bg-Magnolia`}>
+      <body className={`${inter.className} grid place-items-center w-screen min-h-screen  bg-Magnolia`}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>
