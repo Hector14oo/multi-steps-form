@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent } from 'react';
 import { useGlobalContext } from '@/context/GlobalContext';
 
 import { FormType } from '@/types/FormTypes';
@@ -88,7 +88,7 @@ export function Form({ legend, description, children }: FormType) {
 
         {children}
 
-        <div className={`my-4 p-4 min-h-[16px] text-sm text-center opacity-${globalState.errorOpacity} rounded-lg bg-Strawberry-red shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)]`}>
+        <div className={`my-4 p-4 min-h-[16px] text-sm text-center ${globalState.errorOpacity ? 'opacity-1' : 'opacity-0'} rounded-lg bg-Strawberry-red shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)]`}>
           <span className='text-White'>{globalState.errorMessage[globalState.step - 1]}</span>
         </div>
 
