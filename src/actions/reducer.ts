@@ -31,7 +31,7 @@ export const formReducer = (state: any, action: any) => {
       return {
         ...state,
         plan: payload.plan,
-        total: state.total + payload.plan.price,
+        total: payload.plan.price,
       };
     case 'STEP_3':
       return {
@@ -66,18 +66,18 @@ export const formReducer = (state: any, action: any) => {
 
     case 'GO_BACK':
       if (state.step === 1) break;
+      if (state.step === 4) {
+        return {
+          ...state,
+          step: state.step - 1,
+          total: state.plan.price,
+        };
+      }
       return {
         ...state,
         step: state.step - 1,
       };
     case 'GO_NEXT':
-      if (state.step === 4) {
-        return {
-          ...state,
-          success: true,
-        };
-      }
-
       return {
         ...state,
         step: state.step + 1,
