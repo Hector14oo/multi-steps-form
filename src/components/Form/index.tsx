@@ -46,6 +46,8 @@ export function Form({ legend, description, children }: FormType) {
       }
 
       case 2: {
+        dispatcher({ type: STEP_2, payload: { plan: { name: undefined, price: undefined } } });
+
         const planName = formData.get('plan');
         if (!planName) {
           dispatcher({ type: ERROR, payload: 1 });
@@ -53,15 +55,18 @@ export function Form({ legend, description, children }: FormType) {
         }
 
         const planInfo = RADIO_LIST(globalState.planType).find((plan) => plan.label === planName);
-
         if (!planInfo) throw new Error(`Plan ${planName} not found`);
 
-        dispatcher({ type: STEP_2, payload: { plan: { name: planInfo.label, price: planInfo.price, discount: planInfo } } });
+        dispatcher({ type: STEP_2, payload: { plan: { name: planInfo.label, price: planInfo.price } } });
         break;
       }
 
       case 3: {
         const addOns = formData.getAll('addOns');
+        if (addOns.length === 0) {
+          dispatcher({ type: STEP_3, payload: { addOns: [] } });
+          break;
+        }
         const addOnsList = addOns.map((addOn, index) => ({ name: addOn, price: CHECKBOX_LIST(globalState.planType)[index].price }));
 
         dispatcher({ type: STEP_3, payload: { addOns: addOnsList } });
