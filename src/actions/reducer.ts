@@ -1,6 +1,6 @@
-import { UserInformation } from '@/types/FormTypes';
+import { FormInformation } from '@/types/FormTypes';
 
-export const initialState: UserInformation = {
+export const initialState: FormInformation = {
   userData: {
     name: undefined,
     email: undefined,
@@ -10,6 +10,8 @@ export const initialState: UserInformation = {
   planType: false, //false = Monthly | true = Yearly
   addOns: [],
   step: 1,
+  errorOpacity: 0,
+  errorMessage: ['Please fill out the form correctly, check the incomplete fields.', 'Please select a plan.'],
   success: false,
   total: 0,
 };
@@ -29,13 +31,18 @@ export const formReducer = (state: any, action: any) => {
       return {
         ...state,
         plan: payload.plan,
-        total: state.total + payload.plan.price,
+        total: payload.plan.price,
       };
     case 'STEP_3':
       return {
         ...state,
         addOns: payload.addOns,
         total: state.total + payload.addOns.reduce((a: number, v: { name: string; price: number }) => a + v.price, 0),
+      };
+    case 'ERROR':
+      return {
+        ...state,
+        errorOpacity: payload,
       };
 
     case 'PLAN_TYPE':
@@ -51,21 +58,26 @@ export const formReducer = (state: any, action: any) => {
           step: payload,
           total: 0,
         };
+    case 'SUCCESS':
+      return {
+        ...state,
+        success: true,
+      };
 
     case 'GO_BACK':
       if (state.step === 1) break;
+      if (state.step === 4) {
+        return {
+          ...state,
+          step: state.step - 1,
+          total: state.plan.price,
+        };
+      }
       return {
         ...state,
         step: state.step - 1,
       };
     case 'GO_NEXT':
-      if (state.step === 4) {
-        return {
-          ...state,
-          success: true,
-        };
-      }
-
       return {
         ...state,
         step: state.step + 1,

@@ -1,11 +1,11 @@
 'use client';
 
-import { UserInformation } from '@/types/FormTypes';
+import { FormInformation } from '@/types/FormTypes';
 import { initialState, formReducer } from '@/actions/reducer';
 import { createContext, useContext, ReactNode, useReducer } from 'react';
 
 interface ContextProps {
-  globalState: UserInformation;
+  globalState: FormInformation;
   dispatcher: ({}) => void;
 }
 

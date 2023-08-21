@@ -6,7 +6,7 @@ export type FormType = {
   children: ReactNode;
 };
 
-export type UserInformation = {
+export type FormInformation = {
   userData: {
     name: undefined | string;
     email: undefined | string;
@@ -16,6 +16,8 @@ export type UserInformation = {
   planType: boolean;
   addOns: [] | [{ name: undefined | string; price: undefined | number }];
   step: number;
+  errorOpacity: number;
+  errorMessage: string[];
   success: boolean;
   total: number;
 };
