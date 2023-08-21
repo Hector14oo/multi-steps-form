@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [REPO](https://your-solution-url.com](https://github.com/Hector14oo/multi-steps-form)
-- Live Site URL: [LIVE PREVIEW](https://your-live-site-url.com](https://multi-steps-form-six.vercel.app/)
+- Solution URL: [REPO](https://github.com/Hector14oo/multi-steps-form)
+- Live Site URL: [LIVE PREVIEW](https://multi-steps-form-six.vercel.app/)
 
 ## My process
 
