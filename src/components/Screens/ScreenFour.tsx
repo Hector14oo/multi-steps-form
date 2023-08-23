@@ -9,7 +9,7 @@ export function ScreenFour() {
 
   return (
     <section className={`w-full h-full flex flex-col justify-between gap-3 ${transition ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity ease-out duration-200`}>
-      <h1 className='mt-2 text-2xl md:text-3xl font-bold text-Marine-blue'>Finish up</h1>
+      <h2 className='mt-2 text-2xl md:text-3xl font-bold text-Marine-blue'>Finish up</h2>
       <p className='mb-2 w-60 md:w-96 md:text-lg font-light text-Cool-gray'>Double-check everything looks OK before confirming.</p>
 
       <article className='pb-2 flex flex-col gap-6'>

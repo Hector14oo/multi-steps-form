@@ -87,7 +87,7 @@ export function Form({ id, legend, description, children }: FormType) {
         onSubmit={(e) => handleSubmit(e)}
         className={`w-full h-full flex flex-col justify-between gap-5 ${transition ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity ease-out duration-200`}
       >
-        <legend className='mt-2 text-2xl md:text-3xl font-bold text-Marine-blue'>{legend}</legend>
+        <h2 className='mt-2 text-2xl md:text-3xl font-bold text-Marine-blue'>{legend}</h2>
         <p className='mb-2 w-60 md:w-96 md:text-lg font-light text-Cool-gray'>{description}</p>
 
         {children}

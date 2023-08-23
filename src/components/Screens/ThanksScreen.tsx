@@ -12,7 +12,7 @@ export function ThanksScreen() {
       <i>
         <ThanksSVG />
       </i>
-      <h1 className='mt-2 text-2xl md:text-4xl font-bold text-Marine-blue'>Thank you!</h1>
+      <h2 className='mt-2 text-2xl md:text-4xl font-bold text-Marine-blue'>Thank you!</h2>
       <p className='mb-2 md:text-xl font-light text-Cool-gray'>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please fell free to email us at support@loremgaming.com.</p>
     </section>
   );
