@@ -10,7 +10,7 @@ export const initialState: FormInformation = {
   planType: false, //false = Monthly | true = Yearly
   addOns: [],
   step: 1,
-  errorOpacity: 0,
+  showError: false,
   errorMessage: ['Please fill out the form correctly, check the incomplete fields.', 'Please select a plan.'],
   success: false,
   total: 0,
@@ -42,7 +42,7 @@ export const formReducer = (state: any, action: any) => {
     case 'ERROR':
       return {
         ...state,
-        errorOpacity: payload,
+        showError: payload,
       };
 
     case 'PLAN_TYPE':
