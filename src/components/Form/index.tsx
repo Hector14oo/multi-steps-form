@@ -1,17 +1,20 @@
 import { FormEvent } from 'react';
 import { useGlobalContext } from '@/context/GlobalContext';
+import { useTransition } from '@/hooks/useTransition';
 
 import { FormType } from '@/types/FormTypes';
 import { GO_BACK, GO_NEXT, STEP_1, STEP_2, STEP_3, ERROR } from '@/actions/types';
 
 import { RADIO_LIST, CHECKBOX_LIST } from '@/utils/constants';
+import { ErrorMessage } from '../ErrorMessage';
 
-export function Form({ legend, description, children }: FormType) {
+export function Form({ id, legend, description, children }: FormType) {
   const { globalState, dispatcher } = useGlobalContext();
+  const { transition, leaveTransition } = useTransition(globalState.step === id);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatcher({ type: ERROR, payload: 0 });
+    dispatcher({ type: ERROR, payload: false });
 
     const labels = Array.from(e.currentTarget.getElementsByTagName('label'));
     const formData = new FormData(e.currentTarget);
@@ -24,7 +27,7 @@ export function Form({ legend, description, children }: FormType) {
             return !input.value;
           })
         ) {
-          dispatcher({ type: ERROR, payload: 1 });
+          dispatcher({ type: ERROR, payload: true });
 
           labels.forEach((label) => {
             const input = label.children[0];
@@ -50,7 +53,7 @@ export function Form({ legend, description, children }: FormType) {
 
         const planName = formData.get('plan');
         if (!planName) {
-          dispatcher({ type: ERROR, payload: 1 });
+          dispatcher({ type: ERROR, payload: true });
           return;
         }
 
@@ -74,6 +77,7 @@ export function Form({ legend, description, children }: FormType) {
       }
     }
 
+    leaveTransition();
     dispatcher({ type: GO_NEXT });
   };
 
@@ -81,29 +85,31 @@ export function Form({ legend, description, children }: FormType) {
     <>
       <form
         onSubmit={(e) => handleSubmit(e)}
-        className='p-5 lg:px-16 w-11/12 lg:w-full lg:h-full flex flex-col justify-between gap-3 lg:relative bg-White rounded-xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)] lg:shadow-none'
+        className={`w-full h-full flex flex-col justify-between gap-5 ${transition ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity ease-out duration-200`}
       >
         <legend className='mt-2 text-2xl md:text-3xl font-bold text-Marine-blue'>{legend}</legend>
         <p className='mb-2 w-60 md:w-96 md:text-lg font-light text-Cool-gray'>{description}</p>
 
         {children}
 
-        <div className={`my-4 p-4 min-h-[16px] text-sm text-center ${globalState.errorOpacity ? 'opacity-1' : 'opacity-0'} rounded-lg bg-Strawberry-red shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)]`}>
-          <span className='text-White'>{globalState.errorMessage[globalState.step - 1]}</span>
-        </div>
+        {globalState.showError && <ErrorMessage message={globalState.errorMessage[globalState.step - 1]} />}
 
         <section className='mt-auto lg:px-0 w-full flex justify-between items-center lg:right-16 lg:left-auto'>
           <button
             type='button'
-            className={`${globalState.step > 1 ? 'visible' : 'invisible'} text-sm md:text-base text-Cool-gray rounded-[4px]`}
-            onClick={() => dispatcher({ type: GO_BACK })}
+            className={`${globalState.step > 1 ? 'visible' : 'invisible'} font-medium text-sm md:text-base text-Cool-gray md:hover:text-Marine-blue transition-colors ease-out duration-200`}
+            onClick={() => {
+              dispatcher({ type: ERROR, payload: false });
+              leaveTransition();
+              dispatcher({ type: GO_BACK });
+            }}
           >
             Go Back
           </button>
 
           <button
             type='submit'
-            className={`py-2 px-4 text-sm md:text-base text-White ${globalState.step < 4 ? 'bg-Marine-blue' : 'bg-Purplish-blue'} rounded-[4px]`}
+            className={`py-2 px-4 text-sm md:text-base text-White ${globalState.step < 4 ? 'bg-Marine-blue' : 'bg-Purplish-blue'} md:hover:bg-opacity-90 transition-colors ease-out duration-200 rounded-lg`}
           >
             {globalState.step < 4 ? 'Next Step' : 'Confirm'}
           </button>

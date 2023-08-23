@@ -20,13 +20,13 @@ export function ScreenTwo() {
             value={radio.label}
             className='sr-only peer'
           />
-          <article className='p-5 w-full lg:h-full flex lg:flex-col items-center lg:items-start gap-4 rounded-lg ring-1 ring-Light-gray peer-checked:ring-Marine-blue hover:ring-Marine-blue peer-checked:bg-Purplish-blue peer-checked:bg-opacity-5'>
+          <article className='p-5 w-full lg:h-full flex lg:flex-col items-center lg:items-start gap-4 rounded-lg ring-1 ring-Light-gray peer-checked:ring-Purplish-blue hover:ring-Purplish-blue peer-checked:bg-Purplish-blue peer-checked:bg-opacity-5 transition-[colors, opacity] ease-out duration-200'>
             <i aria-hidden='true'>{radio.icon}</i>
             <section className='w-full'>
               <span className='w-full md:text-lg text-Marine-blue font-medium'>{radio.label}</span>
               <span className='w-full flex lg:flex-col justify-between items-center lg:items-start text-sm md:text-base text-Cool-gray'>
                 ${radio.price}/{globalState.planType ? 'yr' : 'mo'}
-                {globalState.planType && <span className='text-xs md:text-sm text-Marine-blue'>2 months free</span>}
+                <span className={`text-xs md:text-sm text-Marine-blue ${globalState.planType ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity ease-out duration-200`}>2 months free</span>
               </span>
             </section>
           </article>

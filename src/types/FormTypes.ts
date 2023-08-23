@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 export type FormType = {
+  id: number;
   legend: string;
   description: string;
   children: ReactNode;
@@ -16,7 +17,7 @@ export type FormInformation = {
   planType: boolean;
   addOns: [] | [{ name: undefined | string; price: undefined | number }];
   step: number;
-  errorOpacity: number;
+  showError: boolean;
   errorMessage: string[];
   success: boolean;
   total: number;
