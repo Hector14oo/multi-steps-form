@@ -14,7 +14,7 @@ export function ScreenThree() {
             type='checkbox'
             name='addOns'
             value={checkbox.label}
-            className='w-6 h-6 peer accent-Purplish-blue after:absolute after:rounded-lg after:top-0 after:left-0 after:w-full after:h-full after:appearance-none after:ring-1 after:ring-Light-gray after:checked:ring-Marine-blue after:hover:ring-Marine-blue after:checked:bg-Purplish-blue after:checked:bg-opacity-5 after:cursor-pointer'
+            className='w-6 h-6 peer accent-Purplish-blue after:absolute after:rounded-lg after:top-0 after:left-0 after:w-full after:h-full after:appearance-none after:ring-1 after:ring-Light-gray after:checked:ring-Purplish-blue md:after:hover:ring-Purplish-blue after:checked:bg-Purplish-blue after:checked:bg-opacity-5 after:cursor-pointer after:transition-[colors, opacity] after:ease-out after:duration-200'
           />
           <article className='p-3 pl-0 w-full flex items-center gap-4'>
             <span className='w-full text-sm md:text-base text-Marine-blue font-medium'>

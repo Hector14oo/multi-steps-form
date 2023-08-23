@@ -1,10 +1,14 @@
 import { useGlobalContext } from '@/context/GlobalContext';
+import { useTransition } from '@/hooks/useTransition';
+
 import { CHANGE_PLAN, GO_BACK, SUCCESS } from '@/actions/types';
 
 export function ScreenFour() {
   const { globalState, dispatcher } = useGlobalContext();
+  const { transition, leaveTransition } = useTransition(globalState.step === 4 && !globalState.success);
+
   return (
-    <section className='p-5 lg:px-16 w-11/12 lg:w-full lg:h-full flex flex-col justify-between gap-3 bg-White rounded-xl shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1)] lg:shadow-none'>
+    <section className={`w-full h-full flex flex-col justify-between gap-3 ${transition ? 'opacity-100 visible' : 'opacity-0 invisible'} transition-opacity ease-out duration-200`}>
       <h1 className='mt-2 text-2xl md:text-3xl font-bold text-Marine-blue'>Finish up</h1>
       <p className='mb-2 w-60 md:w-96 md:text-lg font-light text-Cool-gray'>Double-check everything looks OK before confirming.</p>
 
@@ -57,16 +61,22 @@ export function ScreenFour() {
       <section className='mt-auto lg:px-0 w-full flex justify-between items-center'>
         <button
           type='button'
-          className={`${globalState.step > 1 ? 'visible' : 'invisible'} text-sm md:text-base text-Cool-gray rounded-[4px]`}
-          onClick={() => dispatcher({ type: GO_BACK })}
+          className={`text-sm md:text-base font-medium text-Cool-gray md:hover:text-Marine-blue transition-colors ease-out duration-200`}
+          onClick={() => {
+            leaveTransition();
+            dispatcher({ type: GO_BACK });
+          }}
         >
           Go Back
         </button>
 
         <button
           type='button'
-          className={`py-2 px-4 text-sm md:text-base text-White ${globalState.step < 4 ? 'bg-Marine-blue' : 'bg-Purplish-blue'} rounded-[4px]`}
-          onClick={() => dispatcher({ type: SUCCESS })}
+          className={`py-2 px-4 text-sm md:text-base text-White ${globalState.step < 4 ? 'bg-Marine-blue' : 'bg-Purplish-blue'} md:hover:bg-opacity-90 transition-colors ease-out duration-200 rounded-lg`}
+          onClick={() => {
+            leaveTransition();
+            dispatcher({ type: SUCCESS });
+          }}
         >
           Confirm
         </button>
