@@ -58,7 +58,7 @@ export function ScreenFour() {
         </footer>
       </article>
 
-      <section className='mt-auto lg:px-0 w-full flex justify-between items-center'>
+      <div className='mt-auto lg:px-0 w-full flex justify-between items-center'>
         <button
           type='button'
           className={`text-sm md:text-base font-medium text-Cool-gray md:hover:text-Marine-blue transition-colors ease-out duration-200`}
@@ -80,7 +80,7 @@ export function ScreenFour() {
         >
           Confirm
         </button>
-      </section>
+      </div>
     </section>
   );
 }

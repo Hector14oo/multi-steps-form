@@ -94,7 +94,7 @@ export function Form({ id, legend, description, children }: FormType) {
 
         {globalState.showError && <ErrorMessage message={globalState.errorMessage[globalState.step - 1]} />}
 
-        <section className='mt-auto lg:px-0 w-full flex justify-between items-center lg:right-16 lg:left-auto'>
+        <div className='mt-auto lg:px-0 w-full flex justify-between items-center lg:right-16 lg:left-auto'>
           <button
             type='button'
             className={`${globalState.step > 1 ? 'visible' : 'invisible'} font-medium text-sm md:text-base text-Cool-gray md:hover:text-Marine-blue transition-colors ease-out duration-200`}
@@ -113,7 +113,7 @@ export function Form({ id, legend, description, children }: FormType) {
           >
             {globalState.step < 4 ? 'Next Step' : 'Confirm'}
           </button>
-        </section>
+        </div>
       </form>
     </>
   );
