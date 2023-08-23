@@ -15,6 +15,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
+      <head>
+        <meta charSet='UTF-8' />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0'
+        />
+        <title>Multi Steps Form by Devtor14oo</title>
+      </head>
       <body className={`${inter.className} grid place-items-center w-screen min-h-screen  bg-Magnolia`}>
         <GlobalProvider>{children}</GlobalProvider>
       </body>
