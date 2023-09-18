@@ -70,7 +70,8 @@ export function Form({ id, legend, description, children }: FormType) {
           dispatcher({ type: STEP_3, payload: { addOns: [] } });
           break;
         }
-        const addOnsList = addOns.map((addOn, index) => ({ name: addOn, price: CHECKBOX_LIST(globalState.planType)[index].price }));
+        const addOnsTemplate = CHECKBOX_LIST(globalState.planType);
+        const addOnsList = addOns.map((addOn) => ({ name: addOn, price: addOnsTemplate.find((item) => item.label === addOn)!.price }));
 
         dispatcher({ type: STEP_3, payload: { addOns: addOnsList } });
         break;
